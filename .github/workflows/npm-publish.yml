@@ -1,0 +1,18 @@
+name: Weekly Task
+
+on:
+  schedule:
+    - cron: "00 08 * * Mon"
+
+jobs:
+  weekly_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run script
+        run: node index.js
+          echo "This is your weekly task running."
+          # Add your script or commands here
