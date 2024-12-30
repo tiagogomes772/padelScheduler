@@ -12,6 +12,6 @@ expressApp.use(express.json());
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.launch()
+// bot.launch()
 
 initScheduledJobs(bot);
