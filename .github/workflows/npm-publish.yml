@@ -2,7 +2,7 @@ name: Weekly Task
 
 on:
   schedule:
-    - cron: "00 08 * * Mon"
+    - cron: "45 16 * * Mon"
 
 jobs:
   weekly_job:
