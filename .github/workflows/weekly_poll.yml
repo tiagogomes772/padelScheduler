@@ -3,7 +3,7 @@ name: Weekly Poll Bot
 on:
   schedule:
     # Runs every Monday at 00:00 UTC
-    - cron: "45 10 * * 5"
+    - cron: "415 11 * * 5"
 
 jobs:
   run-weekly-poll:
