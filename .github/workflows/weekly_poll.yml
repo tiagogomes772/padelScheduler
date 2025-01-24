@@ -3,7 +3,7 @@ name: Weekly Poll Bot
 on:
   schedule:
     # Runs every Monday at 00:00 UTC
-    - cron: "47 17 * * 4"
+    - cron: "40 10 * * 5"
 
 jobs:
   run-weekly-poll:
@@ -28,5 +28,5 @@ jobs:
         run: |
           echo "Setting up bot environment..."
           export BOT_TOKEN=$BOT_TOKEN
-          export BOT_TOKEN=$CHAT_ID
+          export CHAT_ID=$CHAT_ID
           node index.js
