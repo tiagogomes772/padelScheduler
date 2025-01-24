@@ -1,9 +1,12 @@
 import TelegramBot from 'node-telegram-bot-api';
+import http from 'http'; // Import HTTP module
 const token = process.env.BOT_TOKEN; // Replace with your bot's token
 const bot = new TelegramBot(token, { polling: true });
 
 const pollInterval = 7 * 24 * 60 * 60 * 1000; // 1 week in milliseconds
-const chatId = process.env.CHAT_ID;// Replace with your target chat/group ID
+const chatId = process.env.CHAT_ID; // Replace with your target chat/group ID
+
+const PORT = process.env.PORT || 3000; // Define the port, defaulting to 3000
 
 // Store active polls
 let activePolls = {};
@@ -79,3 +82,11 @@ bot.on('poll_answer', (pollAnswer) => {
 // Start sending weekly polls
 sendWeeklyPoll();
 setInterval(sendWeeklyPoll, pollInterval);
+
+// Start an HTTP server to listen on the specified port
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Bot is running\n');
+}).listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
