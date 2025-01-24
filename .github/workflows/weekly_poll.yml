@@ -3,7 +3,7 @@ name: Weekly Poll Bot
 on:
   schedule:
     # Runs every Monday at 00:00 UTC
-    - cron: "23 11 * * 5"
+    - cron: "10 16 * * 5"
 
 jobs:
   run-weekly-poll:
@@ -22,11 +22,4 @@ jobs:
         run: npm install
 
       - name: Run the Telegram bot
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
-        run: |
-          echo "Setting up bot environment..."
-          export BOT_TOKEN=$BOT_TOKEN
-          export CHAT_ID=$CHAT_ID
-          node index.js
+        run: node index.js
